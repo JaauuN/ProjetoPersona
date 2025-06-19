@@ -1,0 +1,920 @@
+:root {
+  --cor-primaria: #07070e;
+  --cor-secundaria: rgba(5, 5, 5, 0.829);
+  --cor-persona: rgb(224, 191, 0);
+  --font-persona: "Dancing Script", cursive;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  padding-top: 300px;
+  height: 200vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.madeirablur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+  background-image: url('/img/wooden-background.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(1px);
+  filter: brightness(0.9);
+  z-index: -1;
+}
+
+.font-persona {
+  position: relative;
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+  max-width: 280px;
+  font-size: 45px;
+  font-weight: bolder;
+  padding: 10px;
+  color: var(--cor-persona);
+  z-index: 1;
+  transition: opacity left 0.3s ease-out;
+}
+
+/*Parte da Barra de Navegação*/
+.barranav {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 95vh;
+  border-radius: 20px;
+  background-color: var(--cor-primaria);
+  margin: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  gap: 10px;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  transition: 0.3s ease-in-out;
+  cursor: default;
+  z-index: 200;
+}
+
+#bt-Menu-Nav {
+  display: flex;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  border-radius: 15px;
+  transition: ease-in-out 0.3s;
+}
+
+/*Parte da Barra de Navegação*/
+
+/*Parte do Menu que aparece na esquerda do site*/
+.container-menu-lateral {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(3px);
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: all 0.4s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1200;
+
+}
+
+.menu-lateral {
+  position: fixed;
+  height: 80vh;
+  width: 15vw;
+  left: 0px;
+  top: 0px;
+  background-color: var(--cor-primaria);
+  color: white;
+  border-bottom-right-radius: 15px;
+  transition: 0.3s ease-in-out;
+  transform: translateX(-100%);
+  z-index: 1300;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+}
+
+.headerlateral {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5px;
+}
+
+#bt-header-lateral {
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  cursor: pointer;
+  border: transparent;
+}
+
+.menu-lateral.mover {
+  transform: translateX(0);
+  transition: ease-in-out 0.3s;
+}
+
+.container-menu-lateral.ativo {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/**/
+
+/*Parte login do usuario*/
+/*Parte do botao do barranav quando voce esta deslogado*/
+.botao_deslogado {
+  position: relative;
+  align-items: center;
+  display: flex;
+  font-size: 20px;
+  color: var(--cor-persona);
+  border: 2px solid var(--cor-persona);
+  border-radius: 10px;
+  background-color: transparent;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  user-select: none;
+}
+
+.botao_deslogado:hover {
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.05);
+  background-color: rgb(255, 255, 255);
+}
+
+/*Parte do botao do barranav quando voce esta logado*/
+.botao_logado {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  width: 60px;
+  height: 60px;
+  color: var(--cor-persona);
+  transition: all 0.3s;
+  cursor: pointer;
+
+}
+.botao_logado svg {
+  z-index: 500;
+  transition: all 0.3s ease-in-out;
+}
+.botao_logado svg:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+
+.mostrar_deslogar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  position: absolute;
+  overflow: hidden;
+  background-color: var(--cor-primaria);
+  transform: translateY(0);
+  transition: all 0.3s;
+  border-radius: 15px;
+  width: 100px;
+  height: 50px;
+  opacity: 0;
+  z-index: 100;
+  cursor: default;
+}
+.mostrar_deslogar.ativo {
+  visibility: visible;
+  transform: translateY(90px);
+  transition: all 0.3s;
+  opacity: 1;
+}
+.mostrar_deslogar p {
+  font-family: var(--font-persona);
+  font-weight: bold;
+  font-size: 20px;
+}
+.mostrar_deslogar button {
+  color: var(--cor-persona);
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+.mostrar_deslogar button:hover {
+  background-color: white;
+}
+
+/*Esta parte é onde os forms de login e registro se encontram*/
+.containerautenticacao {
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  width: auto;
+  transform: scale(0);
+  opacity: 0;
+  background-color: transparent;
+  z-index: 500;
+  backdrop-filter: blur(0px);
+  transition: transform 0.2s ease-in-out, backdrop-filter 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.containerautenticacao.ativo {
+  transform: scale(1);
+  opacity: 1;
+  backdrop-filter: blur(10px);
+  transition: backdrop-filter 0.5s ease-in, transform 0.2s ease-in-out, opacity 0.2s ease;
+}
+
+.container-login-registro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  height: 400px;
+  width: 400px;
+  background-color: var(--cor-primaria);
+  border: 1px solid var(--cor-persona);
+  border-radius: 20px;
+}
+
+.carrossel_login_registro {
+  display: grid;
+  grid-template-columns: 100% 100%;
+  width: 800px;
+  transition: all 0.3s;
+  transform: translateX(0);
+}
+
+.parte_login {
+  width: 100%;
+  height: 100%;
+}
+
+.parte_login p {
+  position: relative;
+  font-size: 25px;
+  top: 20px;
+  font-family: var(--font-persona);
+  color: var(--cor-persona);
+  user-select: none;
+}
+
+.parte_login a {
+  color: white;
+}
+
+.LoginUsuario form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  user-select: none;
+}
+
+.LoginUsuario h2 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  font-size: 50px;
+  color: var(--cor-persona);
+  font-family: var(--font-persona);
+  pointer-events: none;
+  user-select: none;
+}
+
+.LoginUsuario input {
+  font-size: 20px;
+  height: 50px;
+  width: 70%;
+  text-align: center;
+  border-radius: 15px;
+  border: transparent;
+}
+
+.LoginUsuario button {
+  width: 100px;
+  height: 50px;
+  border-radius: 15px;
+  border: 2px solid var(--cor-persona);
+  background-color: var(--cor-primaria);
+  color: var(--cor-persona);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.LoginUsuario button:hover {
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+  background-color: white;
+}
+
+.EnderecoEstilo {
+  display: flex;
+  gap: 6px;
+}
+
+.RegistroUsuario h2 {
+  display: flex;
+  position: relative;
+  top: -10px;
+  justify-content: center;
+  font-size: 50px;
+  color: var(--cor-persona);
+  font-family: var(--font-persona);
+  pointer-events: none;
+  user-select: none;
+}
+
+.RegistroUsuario form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.RegistroUsuario input {
+  height: 30px;
+  width: 70%;
+  text-align: center;
+  border: transparent;
+  border-radius: 20px;
+}
+
+.RegistroUsuario button {
+  width: 100px;
+  height: 50px;
+  color: var(--cor-persona);
+  background-color: transparent;
+  border: 2px solid var(--cor-persona);
+  border-radius: 15px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.RegistroUsuario button:hover {
+  background-color: white;
+  transform: scale(1.1);
+}
+
+.parte_registro {
+  width: 100%;
+  height: 100%;
+}
+
+.parte_registro svg {
+  position: relative;
+  cursor: pointer;
+  color: white;
+  width: 50px;
+  height: 50px;
+  transition: all 0.3s ease-in-out;
+}
+
+.parte_registro svg:hover {
+  transform: scale(1.15);
+}
+
+.carrossel_login_registro.mostrar_registro {
+  transform: translateX(-100%);
+}
+
+
+/*Parte do Menu do Carrinho*/
+/*Esta faz uma area de seleção invisivel que quando é clicada fecha o menu do carrinho*/
+.fundo-carrinho {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transition: all 0.4s ease-in-out;
+  z-index: 200;
+}
+.container-carrinho {
+  position: fixed;
+  background-color: var(--cor-primaria);
+  width: 450px;
+  height: 600px;
+  right: 0px;
+  top: 0px;
+  z-index: 900;
+  border-bottom: 3px solid var(--cor-persona);
+  border-left: 3px solid var(--cor-persona);
+  border-bottom-left-radius: 10px;
+  transform: translateX(100%);
+  transition: all 0.3s ease-in-out;
+}
+.container-carrinho.mover {
+  transform: translateX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.containeritenscarrinho {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.conteudo-carrinho {
+  display: flex;
+  flex-direction: column;
+  color: var(--cor-persona);
+  font-size: 20px;
+  text-align: center;
+  height: 100%;
+}
+.itenscarrinho{
+ display: flex;
+ align-items: center;
+ background-color: transparent;
+ width: 90%;
+ height: 100px;
+ border-radius: 20px;
+ overflow: hidden;
+ border: 3px solid var(--cor-persona);
+ 
+}
+.itenscarrinho img{
+  height: 100%;
+}
+.styleitemcarrinho {
+display: flex;
+align-items: center;
+height: 80px;
+}
+.text-carrinho {
+  font-family: var(--font-persona);
+  font-size: 60px;
+  font-weight: bold;
+  height: 90px;
+  margin-bottom: 20px;
+  border-bottom: 3px solid var(--cor-persona);
+  text-align: center;
+}
+.botao-carrinho {
+  margin-top: auto;
+  margin-bottom: 10px;
+  width: 80px;
+  height: 40px;
+  border-radius: 50px;
+  background: none;
+  border: 1px solid var(--cor-persona);
+  color: var(--cor-persona);
+}
+
+/*Botoes do carrinho tanto do barranav quanto da pagina*/
+#botao-carrinho-barranav {
+  /*Esta parte refenciada por id é apenas a posição dele no HTML*/
+  margin-left: auto;
+  padding: 5px 10px;
+}
+
+.botao-carrinho-barranav {
+  /*Parte referenciada por class é o botao real*/
+  display: flex;
+  background-color: var(--cor-primaria);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.botao-carrinho-barranav:hover {
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.05);
+}
+
+#botao-carrinho-pagina {
+  /*Esta parte referencia a posição dele no HTML, 
+  modificando você muda a posição dele no HTML*/
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(180%);
+  z-index: 100;
+  transition: all 0.3s ease-in-out;
+}
+
+#botao-carrinho-pagina.mostrar {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(0);
+}
+
+#botao-carrinho-pagina:hover {
+  transform: scale(1.1);
+}
+
+.botao-carrinho-pagina {
+  /*Parte referenciada por class é onde modifica os elementos do botãos*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 60px;
+  background-color: var(--cor-primaria);
+  border: 1px solid var(--cor-persona);
+  cursor: pointer;
+  border-radius: 15px;
+  color: white;
+}
+
+/*Parte do Menu dos produtos*/
+#titulocategoria {
+  font-family: var(--font-persona);
+  color: var(--cor-persona);
+  margin: auto;
+  background-color: var(--cor-primaria);
+  border: 1px solid var(--cor-persona);
+  border-radius: 15px;
+  padding: 5px 10px;
+  z-index: 200;
+}
+
+.container-categorias {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  top: -30px;
+  bottom: 2vh;
+  gap: 20px;
+  border-radius: 10px;
+  max-width: 750px;
+  height: 10vh;
+  margin: auto auto 10px;
+  border: 1px solid var(--cor-persona);
+  background-color: var(--cor-primaria);
+  z-index: 10;
+}
+
+.categorias-itens {
+  font-size: 30px;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  font-family: var(--font-persona);
+  color: var(--cor-persona);
+  border-radius: 10px;
+  border: transparent;
+  background-color: transparent;
+  transition: transform 0.4s ease-in-out;
+}
+
+.categorias-itens:hover {
+  top: 100%;
+  left: 100%;
+  transition: all 0.5s;
+  background-color: rgba(24, 24, 24, 0.342);
+  border-bottom: 1px solid var(--cor-persona);
+}
+
+.containermenu>h2 {
+  position: relative;
+  font-family: var(--font-persona);
+  color: var(--cor-persona);
+  top: -10px;
+  font-size: 70px;
+  margin: auto;
+  margin-bottom: 30px;
+  text-align: center;
+  cursor: default;
+}
+
+.containermenu {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: var(--cor-secundaria);
+  height: 120vh;
+  padding: 20px;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.itensmenu {
+  display: flex;
+  flex-direction: column;
+}
+
+.carouselmenu {
+  display: flex;
+  margin: auto;
+  top: -30px;
+  padding-bottom: 100px;
+  position: relative;
+  width: 90%;
+  max-height: 100%;
+  gap: 15px;
+  flex-direction: column;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.conteudo {
+  display: grid;
+  grid-row-gap: 2rem;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-columns: 1fr;
+  justify-items: center;
+  height: 650px;
+  margin: auto;
+  max-width: 200vh;
+  border-radius: 10px;
+  column-gap: 2rem;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.itens {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 50vh;
+  border-radius: 20px;
+  background-color: var(--cor-primaria);
+  border: 2px solid var(--cor-persona);
+  transition: all 0.5s ease-in-out;
+  opacity: 1;
+}
+
+.itens>h3 {
+  padding: 10px;
+  font-family: var(--font-persona);
+  color: var(--cor-persona);
+  font-size: 30px;
+}
+
+.itens>p {
+  padding: 10px 20px;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  margin-bottom: auto;
+  font-weight: bold;
+}
+
+.itens>button {
+  position: relative;
+  cursor: pointer;
+  background-color: var(--cor-primaria);
+  border: 1px solid var(--cor-persona);
+  color: var(--cor-persona);
+  top: -8px;
+  left: -8px;
+  height: 40px;
+  width: 140px;
+  margin-left: auto;
+  border-radius: 15px;
+  font-size: 25px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.itens>button:hover {
+  background-color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+.itens>img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+.itens>h2 {
+  padding: 10px 20px;
+  color: white;
+}
+
+.itens:hover {
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.03);
+  transform-origin: bottom;
+}
+.popup-itemadicionado {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 3px solid var(--cor-persona);
+  border-radius: 15px;
+  background-color: var(--cor-primaria);
+  color: var(--cor-persona);
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 10%;
+  height: 50px;
+  margin: auto;
+  margin-top: 20px;
+  text-align: center;
+  position: fixed;
+  transition: all 0.3s ease-in-out;
+  transform: translate(0);
+  z-index: 1200;
+}
+
+.popup-escondido {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+}
+
+.carouselmenu::-webkit-scrollbar {
+  display: none;
+}
+
+.animacao-entrada {
+  transform: translateY(0);
+  opacity: 1;
+  transition: all ease-in-out;
+}
+
+.animacao-saida {
+  animation: saidaparacima 0.5s forwards;
+}
+
+.animacao-entrada-abaixo {
+  animation: entradadebaixo 0.5s forwards;
+  opacity: 1;
+}
+
+@keyframes entradadebaixo {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+
+  }
+}
+
+@keyframes saidaparacima {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+
+  }
+
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+
+  }
+}
+
+.animacao-entrada-categoria {
+  transform: translateY(0);
+  opacity: 1;
+  transition: all ease-in-out;
+}
+
+.animacao-saida-categoria {
+  animation: saidaparacima 0.3s forwards;
+  opacity: 0;
+}
+
+.animacao-entrada-abaixo-categoria {
+  animation: entradadebaixo 0.3s forwards;
+  opacity: 1;
+}
+
+@keyframes entradadebaixo {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+
+  }
+}
+
+@keyframes saidaparacima {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+
+  }
+
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+
+  }
+}
+
+
+
+/*PARTE DO BOTÃO HOME*/
+#btTopo {
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  bottom: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--cor-primaria);
+  border: 1px solid var(--cor-persona);
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(180%);
+  transition: all 0.3s ease-in-out;
+  z-index: 100;
+  color: white;
+}
+
+#btTopo.mostrar {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  transition: all 0.3s ease-in-out;
+}
+
+#btTopo:hover {
+  transform: scale(1.2);
+}
+
+.imghome {
+  width: 25px;
+  height: 25px;
+}
+
+/*Parte do rodape do site*/
+.rodape {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  background: #fff;
+  text-align: center;
+  padding: 10px 0;
+  border-top: 1px solid #ccc;
+  visibility: hidden;
+  transform: translateY(100px);
+  transition: visibility 0s linear 0.5s, transform 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.rodape.mostrar {
+  visibility: visible;
+  transition: visibility 0s linear 0s, transform 0.3s ease-in-out;
+  transform: translateY(0px);
+}

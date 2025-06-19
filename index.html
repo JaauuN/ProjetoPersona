@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Parte que linka os arquivos CSS e JS do projeto-->
+    <link rel="stylesheet" href="src/index.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="src/index.js" defer></script>
+
+    <!--Parte que linka e renderiza os componentes do React-->
+    <script type="module" src="src/Main.jsx"></script>
+
+    <!--Import-->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Style+Script&display=swap');
+    </style>
+    <title>PersonaMenu</title>
+
+</head>
+
+<body>
+    <!-- Apenas o background personalizado -->
+    <div class="madeirablur"></div>
+
+    <!-- Parte de visualização dos componentes menu lateral, mostrar carrinho do react e barra de navegação do site -->
+    <nav class="barranav">
+        <div id="menu-lateral"></div>
+        <h1 class="font-persona">PersonaMenu</h1>
+        <div id="botao-carrinho-barranav"></div>
+        <div id="BotaoAutenticacao"></div>
+    </nav>
+
+    <!--Parta de login e registro do usuario-->
+    <section>
+        <div class="containerautenticacao">
+            <div class="container-login-registro">
+                <div class="carrossel_login_registro">
+                    <div class="parte_login">
+                        <div id="Login"></div>
+                        <p>Não tem uma conta? <a href="#" id="puxarRegistro">Registre-se</a></p>
+                    </div>
+
+                    <div class="parte_registro">
+                        <svg fill="currentcolor" id="puxarLogin" width="800px" height="800px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 504C119 504 8 393 8 256S119 8 256 8s248 111 248 248-111 248-248 248zm28.9-143.6L209.4 288H392c13.3 0 24-10.7 24-24v-16c0-13.3-10.7-24-24-24H209.4l75.5-72.4c9.7-9.3 9.9-24.8.4-34.3l-11-10.9c-9.4-9.4-24.6-9.4-33.9 0L107.7 239c-9.4 9.4-9.4 24.6 0 33.9l132.7 132.7c9.4 9.4 24.6 9.4 33.9 0l11-10.9c9.5-9.5 9.3-25-.4-34.3z"/></svg>
+                        <div id="Registro"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--Efeito de onda que fica em cima do menu-->
+    <div class="container-onda-top">
+        <div class="onda-top"></div>
+        <div class="onda-top2"></div>
+    </div>
+
+    <!--Parte de visualização do componente menu-itens do react-->
+    <div id="AppMenu"></div>
+
+    <!--Efeito de onda que fica em baixo do menu-->
+    <div class="container-onda-bottom">
+        <div class="onda-bottom"></div>
+        <div class="onda-bottom2"></div>
+    </div>
+
+    <!--Botao que volta para o topo da pagina-->
+    <button id="btTopo" aria-label="Voltar ao topo">
+        <svg class="imghome" fill="currentColor" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 547.596 547.596" xml:space="preserve">
+            <g>
+                <path d="M540.76,254.788L294.506,38.216c-11.475-10.098-30.064-10.098-41.386,0L6.943,254.788
+		c-11.475,10.098-8.415,18.284,6.885,18.284h75.964v221.773c0,12.087,9.945,22.108,22.108,22.108h92.947V371.067
+		c0-12.087,9.945-22.108,22.109-22.108h93.865c12.239,0,22.108,9.792,22.108,22.108v145.886h92.947
+		c12.24,0,22.108-9.945,22.108-22.108v-221.85h75.965C549.021,272.995,552.081,264.886,540.76,254.788z" />
+            </g>
+        </svg>
+    </button>
+
+    <!--Botao do carrinho que fica na pagina-->
+    <div id="botao-carrinho-pagina"></div>
+
+    <!--Rodape do site-->
+    <div class="rodape">
+        <footer>
+            <p>All rights reserved &copy; 2025</p>
+        </footer>
+    </div>
+
+
+</body>
+
+</html>
