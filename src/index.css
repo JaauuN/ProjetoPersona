@@ -14,11 +14,10 @@
 body {
   font-family: 'Courier New', Courier, monospace;
   padding-top: 300px;
-  height: 200vh;
+  height: 220vh;
   position: relative;
   overflow-x: hidden;
 }
-
 .madeirablur {
   position: fixed;
   top: 0;
@@ -69,59 +68,61 @@ body {
   left: 0px;
   transition: 0.3s ease-in-out;
   cursor: default;
-  z-index: 200;
+  z-index: 300;
 }
-
 #bt-Menu-Nav {
   display: flex;
   cursor: pointer;
   background-color: transparent;
   border: none;
-  border-radius: 15px;
-  transition: ease-in-out 0.3s;
+  border-radius: 20px;
+  width: 50px;
+  height: 50px;
 }
 
-/*Parte da Barra de Navegação*/
-
-/*Parte do Menu que aparece na esquerda do site*/
+/*Parte do Menu-lateral esquerda*/
 .container-menu-lateral {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   backdrop-filter: blur(3px);
   background-color: rgba(0, 0, 0, 0.2);
   transition: all 0.4s ease-in-out;
   opacity: 0;
-  pointer-events: none;
-  z-index: 1200;
-
+  z-index: 600;
+  visibility: hidden;
 }
-
+.container-menu-lateral.ativo {
+  opacity: 1;
+  visibility: visible;
+}
 .menu-lateral {
+  display: flex;
   position: fixed;
-  height: 80vh;
-  width: 15vw;
+  flex-direction: column;
+  gap: 60px;
+  height: 60%;
+  width: 180px;
   left: 0px;
   top: 0px;
   background-color: var(--cor-primaria);
-  color: white;
-  border-bottom-right-radius: 15px;
   transition: 0.3s ease-in-out;
   transform: translateX(-100%);
-  z-index: 1300;
-  border-right: 1px solid white;
-  border-bottom: 1px solid white;
+  z-index: 700;
+  border-right: 2px solid var(--cor-persona);
+  border-bottom: 2px solid var(--cor-persona);
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
 }
-
 .headerlateral {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding: 5px;
+  box-shadow: 1px 1px 8px 2px ;
 }
-
 #bt-header-lateral {
   align-items: center;
   justify-content: center;
@@ -129,18 +130,10 @@ body {
   cursor: pointer;
   border: transparent;
 }
-
 .menu-lateral.mover {
   transform: translateX(0);
   transition: ease-in-out 0.3s;
 }
-
-.container-menu-lateral.ativo {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/**/
 
 /*Parte login do usuario*/
 /*Parte do botao do barranav quando voce esta deslogado*/
@@ -178,7 +171,6 @@ body {
   color: var(--cor-persona);
   transition: all 0.3s;
   cursor: pointer;
-
 }
 .botao_logado svg {
   z-index: 500;
@@ -251,14 +243,12 @@ body {
   backdrop-filter: blur(0px);
   transition: transform 0.2s ease-in-out, backdrop-filter 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
-
 .containerautenticacao.ativo {
   transform: scale(1);
   opacity: 1;
   backdrop-filter: blur(10px);
   transition: backdrop-filter 0.5s ease-in, transform 0.2s ease-in-out, opacity 0.2s ease;
 }
-
 .container-login-registro {
   display: flex;
   align-items: center;
@@ -270,7 +260,6 @@ body {
   border: 1px solid var(--cor-persona);
   border-radius: 20px;
 }
-
 .carrossel_login_registro {
   display: grid;
   grid-template-columns: 100% 100%;
@@ -278,12 +267,14 @@ body {
   transition: all 0.3s;
   transform: translateX(0);
 }
+.carrossel_login_registro.mostrar_registro {
+  transform: translateX(-100%);
+}
 
 .parte_login {
   width: 100%;
   height: 100%;
 }
-
 .parte_login p {
   position: relative;
   font-size: 25px;
@@ -292,11 +283,9 @@ body {
   color: var(--cor-persona);
   user-select: none;
 }
-
 .parte_login a {
   color: white;
 }
-
 .LoginUsuario form {
   align-items: center;
   display: flex;
@@ -304,7 +293,6 @@ body {
   gap: 20px;
   user-select: none;
 }
-
 .LoginUsuario h2 {
   display: flex;
   justify-content: center;
@@ -315,7 +303,6 @@ body {
   pointer-events: none;
   user-select: none;
 }
-
 .LoginUsuario input {
   font-size: 20px;
   height: 50px;
@@ -324,7 +311,6 @@ body {
   border-radius: 15px;
   border: transparent;
 }
-
 .LoginUsuario button {
   width: 100px;
   height: 50px;
@@ -335,7 +321,6 @@ body {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
-
 .LoginUsuario button:hover {
   transform: scale(1.1);
   transition: all 0.3s ease-in-out;
@@ -346,7 +331,6 @@ body {
   display: flex;
   gap: 6px;
 }
-
 .RegistroUsuario h2 {
   display: flex;
   position: relative;
@@ -358,7 +342,6 @@ body {
   pointer-events: none;
   user-select: none;
 }
-
 .RegistroUsuario form {
   display: flex;
   flex-direction: column;
@@ -366,7 +349,6 @@ body {
   justify-content: center;
   gap: 10px;
 }
-
 .RegistroUsuario input {
   height: 30px;
   width: 70%;
@@ -374,7 +356,6 @@ body {
   border: transparent;
   border-radius: 20px;
 }
-
 .RegistroUsuario button {
   width: 100px;
   height: 50px;
@@ -386,17 +367,14 @@ body {
   user-select: none;
   transition: all 0.3s ease-in-out;
 }
-
 .RegistroUsuario button:hover {
   background-color: white;
   transform: scale(1.1);
 }
-
 .parte_registro {
   width: 100%;
   height: 100%;
 }
-
 .parte_registro svg {
   position: relative;
   cursor: pointer;
@@ -405,15 +383,9 @@ body {
   height: 50px;
   transition: all 0.3s ease-in-out;
 }
-
 .parte_registro svg:hover {
   transform: scale(1.15);
 }
-
-.carrossel_login_registro.mostrar_registro {
-  transform: translateX(-100%);
-}
-
 
 /*Parte do Menu do Carrinho*/
 /*Esta faz uma area de seleção invisivel que quando é clicada fecha o menu do carrinho*/
@@ -424,7 +396,25 @@ body {
   width: 100vw;
   height: 100vh;
   transition: all 0.4s ease-in-out;
-  z-index: 200;
+  z-index: 300;
+  visibility: hidden;
+}
+.fundo-carrinho.ativo {
+  visibility: visible;
+}
+.text-carrinho {
+  font-family: var(--font-persona);
+  font-size: 60px;
+  font-weight: bold;
+  height: 90px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.vazio{
+  font-family: var(--font-persona);
+  font-size: 30px;
+  margin: auto;
+
 }
 .container-carrinho {
   position: fixed;
@@ -433,23 +423,17 @@ body {
   height: 600px;
   right: 0px;
   top: 0px;
-  z-index: 900;
   border-bottom: 3px solid var(--cor-persona);
   border-left: 3px solid var(--cor-persona);
   border-bottom-left-radius: 10px;
   transform: translateX(100%);
   transition: all 0.3s ease-in-out;
+  z-index: 400;
+  user-select: none;
 }
 .container-carrinho.mover {
   transform: translateX(0);
   transition: all 0.3s ease-in-out;
-}
-
-.containeritenscarrinho {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
 }
 .conteudo-carrinho {
   display: flex;
@@ -457,7 +441,78 @@ body {
   color: var(--cor-persona);
   font-size: 20px;
   text-align: center;
-  height: 100%;
+  height: 90%;
+}
+
+.conteudo-inferior-carrinho{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1px 10px;
+  gap: 10px;
+}
+.subtotal{
+  display: flex;
+  text-align: center;
+  width: 100px;
+  height: 50px;
+  border-radius: 20px;
+  border: 2px solid var(--cor-persona);
+  color: var(--cor-persona);
+}
+.subtotal p{
+  font-size: 20px;
+  margin: auto;
+  pointer-events: none;
+  font-weight: bold;
+}
+.botao-carrinho {
+  font-family: var(--font-persona);
+  font-size: 20px;
+  width: 80px;
+  height: 50px;
+  border-radius: 20px;
+  background-color: transparent;
+  border: 2px solid var(--cor-persona);
+  color: var(--cor-persona);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.botao-carrinho:hover{
+  background-color: white;
+}
+.fechar-pedido{
+  font-family: var(--font-persona);
+  font-size: 20px;
+  position: relative;
+  height: 50px;
+  width: 150px;
+  background-color: transparent; 
+  border: 2px solid var(--cor-persona);
+  color: var(--cor-persona);
+  border-radius: 20px;
+  margin-left: auto;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.fechar-pedido:hover{
+  transform: scale(1.03);
+  color: red;
+  border: 2px solid red;
+}
+
+.carroselitenscarrinho {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 65%;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  gap: 20px;
+}
+.carroselitenscarrinho::-webkit-scrollbar {
+  display: none;
 }
 .itenscarrinho{
  display: flex;
@@ -465,37 +520,84 @@ body {
  background-color: transparent;
  width: 90%;
  height: 100px;
- border-radius: 20px;
- overflow: hidden;
- border: 3px solid var(--cor-persona);
- 
+ transition: all 0.3s ease-in-out;
+ transform-origin: top;
+}
+.itenscarrinho:hover{
+  transform: scale(1.03);
 }
 .itenscarrinho img{
   height: 100%;
 }
+.itenscarrinho h2 {
+  font-family: var(--font-persona);
+  font-size: 30px;
+  max-width: 200px;
+}
+.itenscarrinho p{
+  font-weight: bold;
+}
 .styleitemcarrinho {
 display: flex;
 align-items: center;
-height: 80px;
+border: 3px solid var(--cor-persona);
+width: 100%;
+height: 100%;
+border-radius: 20px;
+overflow: hidden;
 }
-.text-carrinho {
-  font-family: var(--font-persona);
-  font-size: 60px;
-  font-weight: bold;
-  height: 90px;
-  margin-bottom: 20px;
-  border-bottom: 3px solid var(--cor-persona);
-  text-align: center;
+
+.contador-itens{
+  display: flex;
+  max-width: 100px;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+  border: 2px solid var(--cor-persona);
+  border-radius: 20px;
+  margin: 5px;
 }
-.botao-carrinho {
-  margin-top: auto;
-  margin-bottom: 10px;
-  width: 80px;
-  height: 40px;
-  border-radius: 50px;
-  background: none;
-  border: 1px solid var(--cor-persona);
-  color: var(--cor-persona);
+.contador-itens p{
+  display: flex;
+  justify-content: center;
+  width: 20px;
+}
+.mais{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+ background-color: transparent;
+ color: var(--cor-persona);
+ border: none;
+ cursor: pointer;
+ transition: all 0.3s ease-in-out;
+}
+.mais:hover{
+  transform: scale(1.2);
+}
+.mais:active{
+  transition: all 0s ease-out;
+  transform: scale(1.4);
+}
+.menos{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  justify-content: center;
+ color: var(--cor-persona);
+ border: none;
+ cursor: pointer;
+ transition: all 0.3s ease-in-out;
+}
+.menos:hover{
+  transform: scale(1.2);
+  color: red;
+}
+.menos:active{
+  transition: all 0s ease-out;
+  transform: scale(1.4);
 }
 
 /*Botoes do carrinho tanto do barranav quanto da pagina*/
@@ -532,6 +634,7 @@ height: 80px;
   transform: translateY(180%);
   z-index: 100;
   transition: all 0.3s ease-in-out;
+  z-index: 200;
 }
 
 #botao-carrinho-pagina.mostrar {
@@ -570,7 +673,6 @@ height: 80px;
   padding: 5px 10px;
   z-index: 200;
 }
-
 .container-categorias {
   display: flex;
   position: relative;
@@ -587,7 +689,6 @@ height: 80px;
   background-color: var(--cor-primaria);
   z-index: 10;
 }
-
 .categorias-itens {
   font-size: 30px;
   padding: 10px;
@@ -600,7 +701,6 @@ height: 80px;
   background-color: transparent;
   transition: transform 0.4s ease-in-out;
 }
-
 .categorias-itens:hover {
   top: 100%;
   left: 100%;
@@ -629,7 +729,7 @@ height: 80px;
   background: var(--cor-secundaria);
   height: 120vh;
   padding: 20px;
-  z-index: 100;
+  z-index: 200;
   overflow: hidden;
 }
 
@@ -876,6 +976,7 @@ height: 80px;
   transition: all 0.3s ease-in-out;
   z-index: 100;
   color: white;
+   z-index: 200;
 }
 
 #btTopo.mostrar {
@@ -897,24 +998,29 @@ height: 80px;
 /*Parte do rodape do site*/
 .rodape {
   position: fixed;
+  font-size: 15px;
   bottom: 0px;
   right: 0px;
   left: 0px;
   width: 100%;
-  max-width: 500px;
   margin: auto;
   background: #fff;
   text-align: center;
   padding: 10px 0;
-  border-top: 1px solid #ccc;
+  background-color: var(--cor-primaria);
+  color: var(--cor-persona);
   visibility: hidden;
-  transform: translateY(100px);
-  transition: visibility 0s linear 0.5s, transform 0.3s ease-in-out;
-  z-index: 1000;
+  transform: translateY(200px);
+  transition: all 0.6s ease-in-out;
+  opacity: 0;
+  z-index: 100;
 }
-
 .rodape.mostrar {
   visibility: visible;
-  transition: visibility 0s linear 0s, transform 0.3s ease-in-out;
+  transition: all 0.6s ease-in-out;
   transform: translateY(0px);
+  opacity: 1;
+}
+.rodape h1{
+  font-family: var(--font-persona);
 }

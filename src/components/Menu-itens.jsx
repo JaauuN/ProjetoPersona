@@ -2,18 +2,19 @@ import React, { useState } from 'react';
 
 export default function MenuItens({ dadosMenu, onAdicionar }) {
   const categorias = ['Pratos Feitos', 'Carnes', 'Frituras', 'Bebidas', 'Sobremesas'];
-  const [categoriaAtual, setCategoriaAtual] = useState('Pratos Feitos');
+  const [categoriaAtual, setCategoriaatual] = useState('Pratos Feitos');
   const itens = dadosMenu[categoriaAtual] || [];
-  const [adicionado, setAdicionado] = useState(false);
+
+  const [popupadicionado, setPopupadicionado] = useState(false);
   const [animacaosaida, setAnimacaoSaida] = useState(false)
   const [animacaoentrada, setAnimacaoEntrada] = useState(false)
 
   function mensagemadicionar() {
-    setAdicionado(true)
+    setPopupadicionado(true)
 
     setTimeout(() => {
-      setAdicionado(false);
-    }, 2000);
+      setPopupadicionado(false);
+    }, 1000);
   }
 
   function animaritens(novacategoria) {
@@ -23,7 +24,7 @@ export default function MenuItens({ dadosMenu, onAdicionar }) {
 
     setTimeout(() => {
       setAnimacaoSaida(false);
-      setCategoriaAtual(novacategoria)
+      setCategoriaatual(novacategoria)
       setAnimacaoEntrada(true);
 
       setTimeout(() => {
@@ -36,27 +37,18 @@ export default function MenuItens({ dadosMenu, onAdicionar }) {
     <div className="containermenu">
       <h2>Menu</h2>
 
+      {/*Aqui eu percorro o array de categorias e para cada categoria eu recrio ela em um botao, que quando clicado retorna os itens da categoria escolhida que vira categoriaAtual */}
+      {/*Array é como se fosse uma lista ordenada de elementos, mas não é uma lista */}
       <div className="container-categorias">
-        {categorias.map(categoria => (
-          <button key={categoria}
-            className={`categorias-itens ${categoria === categoriaAtual ? 'active' : ''}`}
-            onClick={() => { animaritens(categoria) }}
-          >
-            {categoria}
-          </button>
-        ))}
+        {categorias.map(categoria => (<button key={categoria} className='categorias-itens' onClick={() => {animaritens(categoria)}}> {categoria} </button>))}
       </div>
 
       <div className="itensmenu">
         <div className="carouselmenu">
           <h1 id='titulocategoria' className={`titulocategoria ${animacaosaida ? 'animacao-saida-categoria' : animacaoentrada ? 'animacao-entrada-abaixo-categoria' : 'animacao-entrada-categoria'}`}>{categoriaAtual}</h1>
-
           <div className={`conteudo ${animacaosaida ? 'animacao-saida' : animacaoentrada ? 'animacao-entrada-abaixo' : 'animacao-entrada'}`}>
-            {itens.length === 0 ? (
-              <p>Sem itens nesta categoria.</p>
-            ) : (
-              itens.map(item => (
-
+            {itens.length === 0 ? (<p>Sem itens nesta categoria.</p>) : 
+            (itens.map(item => (
                 <div className="itens" key={item.id}>
                   <img src={item.imagem} />
                   <h3>{item.nome}</h3>
@@ -68,7 +60,7 @@ export default function MenuItens({ dadosMenu, onAdicionar }) {
             )}
           </div>
         </div>
-        <div className={`popup-itemadicionado ${!adicionado ? 'popup-escondido' : ''}`}>Item adicionado</div>
+        <div className={`popup-itemadicionado ${!popupadicionado ? 'popup-escondido' : ''}`}>Item adicionado</div>
       </div>
     </div>
   );

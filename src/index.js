@@ -6,7 +6,7 @@ window.addEventListener('scroll', () => {
   const scrollY = window.scrollY;
 
 /* Animação para quando deve aparecer o Rodape */
-  if (scrollY > 800) {
+  if (scrollY > 1000) {
     rodape.classList.add('mostrar');
   } else {
     rodape.classList.remove('mostrar');

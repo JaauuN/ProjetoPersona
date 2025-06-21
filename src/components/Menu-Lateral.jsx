@@ -13,15 +13,12 @@ export default function MenuLateral() {
     
         {/* Botao do menu que esta no barra nav */}
         <button id="bt-Menu-Nav" onClick={toggleMenu}>
-          <img src="img\menu.svg" height="50" width="50"/>
+          <img src="img\menu.svg"/>
         </button>
 
 
-      {/* Blur de fundo quando puxa a aba menu lateral */}
-      <div
-        className={`container-menu-lateral ${menuaberto ? 'ativo' : ''}`}
-        onClick={() => menuAberto(false)} // fecha o menu se clicar fora
-      ></div>
+      {/* Fundo do menu-lateral, se clicar fora dele ele tira o ativo*/}
+      <div className={`container-menu-lateral ${menuaberto ? 'ativo' : ''}`} onClick={() => menuAberto(false)} ></div>
 
       {/* Menu lateral */}
       <div className={`menu-lateral ${menuaberto ? 'mover' : ''}`}>
@@ -31,7 +28,11 @@ export default function MenuLateral() {
             <img src="img/menu.svg" height="50" width="50" />
             </button>
         </header>
-        <hr />
+        <a href="">Localização</a>
+        <a href="">WhatsApp</a>
+        <a href="">Instagran</a>
+        <a href="">Facebook</a>
+        <a href="">Sobre</a>
       </div>
     </>
   )
