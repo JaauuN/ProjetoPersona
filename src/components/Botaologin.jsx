@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import React, { useState } from 'react'
 import { auth, db } from '../firebase_conexo'
 import { onAuthStateChanged } from 'firebase/auth'
@@ -9,8 +8,6 @@ export default function Botaologin() {
     const [usuariologado, setUsuariologado] = useState(null);
     const [nomeusuarioatual, setNomeusuarioatual] = useState('');
 
-
-   
         // https://firebase.google.com/docs/auth/web/manage-users?hl=pt-br
          onAuthStateChanged(auth, async (usuarios) => {
             if (usuarios) {
@@ -44,7 +41,8 @@ export default function Botaologin() {
 
     // https://firebase.google.com/docs/auth/web/password-auth?hl=pt-br
     function deslogar() {
-        signOut(auth).then(() => {
+        signOut(auth)
+        .then(() => {
             // Sign-out successful.
         }).catch((error) => {
             // An error happened.

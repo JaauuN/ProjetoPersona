@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 export default function MenuItens({ dadosMenu, adicionaritem }) {
   const categorias = ['Pratos Regionais', 'Carnes', 'Frituras', 'Bebidas', 'Sobremesas'];
   const [categoriaAtual, setCategoriaatual] = useState('Pratos Regionais');
-  const itens = dadosMenu[categoriaAtual] || [];
+  const itens = dadosMenu[categoriaAtual];
 
   const [popupadicionado, setPopupadicionado] = useState(false);
   const [animacaosaida, setAnimacaoSaida] = useState(false)
@@ -47,7 +47,7 @@ export default function MenuItens({ dadosMenu, adicionaritem }) {
         <div className="carouselmenu">
           <h1 id='titulocategoria' className={`titulocategoria ${animacaosaida ? 'animacao-saida-categoria' : animacaoentrada ? 'animacao-entrada-abaixo-categoria' : 'animacao-entrada-categoria'}`}>{categoriaAtual}</h1>
           <div className={`conteudo ${animacaosaida ? 'animacao-saida' : animacaoentrada ? 'animacao-entrada-abaixo' : 'animacao-entrada'}`}>
-            {itens.length === 0 ? (<p>Sem itens nesta categoria.</p>) : 
+            {itens.length === 0 ? '' : 
             (itens.map(item => (
                 <div className="itens" key={item.id}>
                   <img src={item.imagem} />

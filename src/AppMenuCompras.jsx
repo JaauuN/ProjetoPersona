@@ -11,9 +11,6 @@ export default function Menu() {
   const [carrinho, setCarrinhocompras] = useState([])
   const [mostrarcarrinho, setMostrarcarrinho] = useState(false)
 
-
-
-
   const dadosMenu = {
     'Pratos Regionais': [
       { imagem: '/refeições/galinha-caipira.webp', descricao: 'Acompanha Arroz Branco, Cuscuz, Pirão e Macaxeira', id: 1, nome: 'Galinha Caipira', preco: 130 },
@@ -98,11 +95,11 @@ export default function Menu() {
     const docSnap = await getDoc(docRef)
     let nome = ''
     let endereco = ''
-    if (docSnap.exists()) {
-      const dados = docSnap.data()
-      nome = dados.nome
-      endereco = dados.endereco
-    }
+     
+    const dados = docSnap.data()
+     nome = dados.nome
+     endereco = dados.endereco
+   
 
     const numerozap = "85991591674"
     let mensagemzap = `Meu nome é: ${nome}\n`
@@ -120,14 +117,11 @@ export default function Menu() {
     const link = `https://wa.me/${numerozap}?text=${encodeURIComponent(mensagemzap)}`
     window.open(link, "_blank")
     setCarrinhocompras([])
-
   }
 
   // Redenrizo o BotaoCarrinho que esta tanto no barranav quanto na pagina para usar a função toggleCarrinho: https://react.dev/reference/react-dom/createPortal
-  useEffect(() => {
-      ReactDOM.createRoot(document.getElementById('botao-carrinho-barranav')).render(<BotaoCarrinhoNav toggleCarrinho={toggleCarrinho} />);
-      ReactDOM.createRoot(document.getElementById('botao-carrinho-pagina')).render(<BotaoCarrinhoPagina toggleCarrinho={toggleCarrinho} />);
-  }, []);
+ReactDOM.createRoot(document.getElementById('botao-carrinho-barranav')).render(<BotaoCarrinhoNav toggleCarrinho={toggleCarrinho} />);
+ReactDOM.createRoot(document.getElementById('botao-carrinho-pagina')).render(<BotaoCarrinhoPagina toggleCarrinho={toggleCarrinho} />);
 
   return (
     <div>

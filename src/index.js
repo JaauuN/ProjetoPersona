@@ -36,6 +36,7 @@ window.addEventListener('scroll', () => {
 
 
 const login_registro = document.querySelector('.carrossel_login_registro')
+
 const registrar = document.getElementById('puxarRegistro')
 registrar.addEventListener("click",() => {
     login_registro.classList.add('mostrar_registro');
@@ -47,8 +48,6 @@ login.addEventListener("click",() => {
     login_registro.classList.remove('mostrar_registro');
 }
 )
-
-
 
 const menulateral = document.querySelector('.menu-lateral');
 const btMenulateral = document.getElementById('bt-Menu-Nav');

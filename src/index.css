@@ -232,7 +232,6 @@ body {
   transform: scale(1.05);
   transition: all 0.3s ease-in-out;
 }
-
 .mostrar_deslogar {
   display: flex;
   flex-direction: column;
@@ -282,7 +281,6 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  overflow: hidden;
   top: 0;
   left: 0;
   right: 0;
@@ -322,7 +320,6 @@ body {
 .carrossel_login_registro.mostrar_registro {
   transform: translateX(-100%);
 }
-
 .parte_login {
   width: 100%;
   height: 100%;

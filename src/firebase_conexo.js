@@ -6,6 +6,7 @@ import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries << (SALVOU MINHA VIDA)
+// https://firebase.google.com/docs/auth/web/start?hl=pt-br&authuser=0
 
 // Your web app's Firebase configuration
 const firebaseConfig = {

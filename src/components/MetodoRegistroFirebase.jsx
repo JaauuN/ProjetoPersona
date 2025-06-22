@@ -14,21 +14,21 @@ export default function MetodoRegistroFirebase() {
     async function fazerCadastro(e) {
         // preventDefault previne o formulario de recarregar a pagina quando dou submit
         e.preventDefault();
-        const emailfake = `${numero}@meusite.com`
-        const userCredential = await createUserWithEmailAndPassword(auth, emailfake, senha);
-        const userio = userCredential.user;
-
+        const emailfake = `${numero}@personamenu.com`
         // aqui eu junto todos os dados(rua,bairro e numerocasa) que foram passados no forms de registro e junto em um unico lugar
         const enderecoCompleto = `${rua}, nº ${numerocasa} - Bairro ${bairro}`;
 
+        const userCredential = await createUserWithEmailAndPassword(auth, emailfake, senha);
+        const usuario = userCredential.user;
         // https://firebase.google.com/docs/firestore/manage-data/add-data?hl=pt-br
-        await setDoc(doc(db, 'usuarios', userio.uid), {
+        await setDoc(doc(db, 'usuarios', usuario.uid), {
             nome,
             numero,
             endereco: enderecoCompleto
         });
         alert('Usuário cadastrado com sucesso!');
     }
+
     return (
         <div className='RegistroUsuario'>
             <h2>Registrar</h2>

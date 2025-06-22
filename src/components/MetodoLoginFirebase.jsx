@@ -10,7 +10,7 @@ export default function MetodoLoginFirebase() {
 
     function fazerlogin(e) {
         e.preventDefault()
-        const emailfake = `${numero}@meusite.com`
+        const emailfake = `${numero}@personamenu.com`
 
         signInWithEmailAndPassword(auth, emailfake, senha)
         .then(() => {

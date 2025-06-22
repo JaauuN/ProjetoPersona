@@ -1,16 +1,13 @@
 import React, { useState } from 'react'
 
 export default function MenuLateral() {
-
-  // Função que controla se o menu esta aberto (ele inicia fechado)
   const [menuaberto, menuAberto] = useState(false)
 
-  // Função abre e fecha menu
+  //Função abre e fecha o menu lateral
   const toggleMenu = () => menuAberto(!menuaberto)
 
   return (
     <>
-
       {/* Botao do menu que esta no barra nav */}
       <button id="bt-Menu-Nav" onClick={toggleMenu}>
         <img src="img\menu.svg" />
