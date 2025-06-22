@@ -17,7 +17,7 @@ export default function MetodoLoginFirebase() {
             alert('Login feito!')
         })
         .catch(() => {
-            alert('Email ou senha incorretas!')
+            alert('Numero ou senha incorretas!')
         });
     }
     
