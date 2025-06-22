@@ -13,13 +13,11 @@ export default function MetodoLoginFirebase() {
         const emailfake = `${numero}@meusite.com`
 
         signInWithEmailAndPassword(auth, emailfake, senha)
-        .then((userCredential) => {
+        .then(() => {
             alert('Login feito!')
-            console.log(userCredential.user)
         })
-        .catch((error) => {
+        .catch(() => {
             alert('Email ou senha incorretas!')
-            console.error('Erro no login:', error.message)
         });
     }
     

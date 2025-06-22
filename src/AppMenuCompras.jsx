@@ -15,53 +15,58 @@ export default function Menu() {
 
 
   const dadosMenu = {
-    'Pratos Feitos': [
-      { imagem: '/refeições/prato_bife.webp', descricao: 'ola', id: 1, nome: 'Frango Ao Molho', preco: 20 },
-      { imagem: '/refeições/prato_bife.webp', descricao: 'ola', id: 2, nome: 'Frango Ao Molho', preco: 20 },
-      { imagem: '/refeições/prato_bife.webp', descricao: '', id: 3, nome: 'Frango Ao Molho', preco: 20 },
-      { imagem: '/refeições/prato_bife.webp', descricao: '', id: 4, nome: 'Frango Ao Molho', preco: 20 },
-      { imagem: '/refeições/prato_bife.webp', descricao: '', id: 5, nome: 'Frango Ao Molho', preco: 20 },
-      { imagem: '/refeições/prato_bife.webp', descricao: '', id: 6, nome: 'Frango Ao Molho', preco: 20 },
-      { imagem: '/refeições/prato_bife.webp', descricao: '', id: 7, nome: 'Frango Ao Molho', preco: 20 },
-      { imagem: '/refeições/prato_bife.webp', descricao: '', id: 8, nome: 'Frango Ao Molho', preco: 20 },
-      { imagem: '/refeições/prato_bife.webp', descricao: '', id: 9, nome: 'Frango Ao Molho', preco: 20 },
+    'Pratos Regionais': [
+      { imagem: '/refeições/galinha-caipira.webp', descricao: 'Acompanha Arroz Branco, Cuscuz, Pirão e Macaxeira', id: 1, nome: 'Galinha Caipira', preco: 130 },
+      { imagem: '/refeições/panelada.webp', descricao: 'Acompanha Arroz Branco, Cuscuz ou Pirão', id: 2, nome: 'Panelada', preco: 50 },
+      { imagem: '/refeições/Buchada-panelada.webp', descricao: 'Acompanha Arroz Branco, Cuscuz ou Pirão', id: 3, nome: 'Buchada Panelada', preco: 50 },
+      { imagem: '/refeições/fava.webp', descricao: 'Feito com Carne de Charque e Calabresa', id: 4, nome: 'Fava', preco: 25 },
+      { imagem: '/refeições/feijão verde.webp', descricao: 'Feito com Queijo, Maxixe, Quiabo e Nata', id: 5, nome: 'Feijão Verde', preco: 22 },
+      { imagem: '/refeições/feij.webp', descricao: 'Feito com Carne de Charque, Linguiça, Cuscuz e Feijão', id: 6, nome: 'Feijão Tropeiro', preco: 30 },
+      { imagem: '/refeições/carneiro cozido.webp', descricao: 'Acompanha Arroz Branco, Cuscuz ou Pirão', id: 7, nome: 'Carneiro Cozido', preco: 20 },
+      { imagem: '/refeições/sarapatel.webp', descricao: 'Acompanha Arroz Branco, Cuscuz e Cheiro Verde', id: 8, nome: 'Sarapatel de Carneiro', preco: 20 },
+      { imagem: '/refeições/sarrabulho.webp', descricao: 'Acompanha Arroz Branco, Cuscuz e Cheiro Verde', id: 9, nome: 'Sarrabulho', preco: 20 },
     ],
     'Carnes': [
-      { imagem: '/refeições/prato_bife.webp', descricao: '', id: 10, nome: 'Frango Ao Molho', preco: 20 },
-      { imagem: '/refeições/prato_bife.webp', descricao: '', id: 11, nome: 'Frango Ao Molho', preco: 20 },
-      { imagem: '/refeições/prato_bife.webp', descricao: '', id: 12, nome: 'Frango Ao Molho', preco: 20 },
-      { imagem: '/refeições/prato_bife.webp', descricao: '', id: 13, nome: 'Frango Ao Molho', preco: 20 },
-      { imagem: '/refeições/prato_bife.webp', descricao: '', id: 14, nome: 'Frango Ao Molho', preco: 20 },
-      { imagem: '/refeições/prato_bife.webp', descricao: '', id: 15, nome: 'Frango Ao Molho', preco: 20 },
+      { imagem: '/refeições/carne do sol-carneiro.jpg', descricao: '300gr / Acompanha Macaxeira, Batata Doce, Farofa e Vinagrete', id: 10, nome: 'Carne do Sol de Porco', preco: 70 },
+      { imagem: '/refeições/carne do sol-carneiro.jpg', descricao: '300gr / Acompanha Macaxeira, Batata Doce, Farofa e Vinagrete', id: 11, nome: 'Carne do Sol de Gado', preco: 75 },
+      { imagem: '/refeições/carne do sol-carneiro.jpg', descricao: '300gr / Acompanha Macaxeira, Batata Doce, Farofa e Vinagrete', id: 12, nome: 'Carne do Sol de Carneiro', preco: 75 },
     ],
     'Frituras': [
-      { imagem: '/refeições/prato_bife.webp', descricao: '', id: 16, nome: 'Frango Ao Molho', preco: 20 },
-      { imagem: '/refeições/prato_bife.webp', descricao: '', id: 17, nome: 'Frango Ao Molho', preco: 20 },
-      { imagem: '/refeições/prato_bife.webp', descricao: '', id: 18, nome: 'Frango Ao Molho', preco: 20 },
-      { imagem: '/refeições/prato_bife.webp', descricao: '', id: 19, nome: 'Frango Ao Molho', preco: 20 },
-    ],
-    'Bebidas': [
-      { imagem: '/refeições/prato_bife.webp', descricao: '', id: 20, nome: 'Frango Ao Molho', preco: 20 },
-      { imagem: '/refeições/prato_bife.webp', descricao: '', id: 21, nome: 'Frango Ao Molho', preco: 20 },
-      { imagem: '/refeições/prato_bife.webp', descricao: '', id: 22, nome: 'Frango Ao Molho', preco: 20 },
-      { imagem: '/refeições/prato_bife.webp', descricao: '', id: 23, nome: 'Frango Ao Molho', preco: 20 },
+      { imagem: '/refeições/peixe tilapia.webp', descricao: 'Acompanha Baião e Farofa', id: 20, nome: 'Peixe Tilápia Frito', preco: 80 },
+      { imagem: '/refeições/atum frito.webp', descricao: '400gr de Atum / Acompanha Baião, Farofa, Macaxeira', id: 21, nome: 'Atum Frito', preco: 65 },
+      { imagem: '/refeições/cavala-frita.webp', descricao: '400gr de Cavala / Acompanha Baião, Farofa, Macaxeira', id: 22, nome: 'Cavala Frita', preco: 75 },
+      { imagem: '/refeições/camarão.webp', descricao: '', id: 23, nome: 'Camarão Alho e Óleo', preco: 25 },
+      { imagem: '/refeições/batata frita.webp', descricao: '', id: 28, nome: 'Batata Frita', preco: 20 },
+      { imagem: '/refeições/torresmo.webp', descricao: '', id: 29, nome: 'Torremos c/ Farofa', preco: 16 },
       ],
+    'Bebidas': [
+      { imagem: '/refeições/agua.webp', descricao: '500ml', id: 16, nome: 'Água Mineral', preco: 3 },
+      { imagem: '/refeições/agua de coco.jpg', descricao: 'Direto do Coco', id: 17, nome: 'Água de Coco Verde', preco: 6 },
+      { imagem: '/refeições/agua de coco jarra.webp', descricao: 'Jarra de 1L', id: 18, nome: 'Água de Coco Jarra', preco: 10 },
+      { imagem: '/refeições/refigerante-lata.webp', descricao: '350ml', id: 13, nome: 'Refrigerante Lata', preco: 5 },
+      { imagem: '/refeições/refrigerante 1 litro.webp', descricao: '1L', id: 14, nome: 'Refrigerante 1 Litro', preco: 9 },
+      { imagem: '/refeições/refrigerante 2litro.webp', descricao: '2L', id: 15, nome: 'Refrigerante 2 Litro', preco: 15 },
+    ],
+    
       'Sobremesas': [
-      { imagem: '/refeições/prato_bife.webp', descricao: '', id: 24, nome: 'Frango Ao Molho', preco: 20 },
-      { imagem: '/refeições/prato_bife.webp', descricao: '', id: 25, nome: 'Frango Ao Molho', preco: 20 },
-      { imagem: '/refeições/prato_bife.webp', descricao: '', id: 26, nome: 'Frango Ao Molho', preco: 20 },
-      { imagem: '/refeições/prato_bife.webp', descricao: '', id: 27, nome: 'Frango Ao Molho', preco: 20 },
+      { imagem: '/refeições/mousse_diversos.jpg', descricao: 'Sabores Diversos', id: 24, nome: 'Mousse Diversos', preco: 7.50 },
+      { imagem: '/refeições/pudim.webp', descricao: '', id: 25, nome: 'Pudim', preco: 7.50 },
+      { imagem: '/refeições/picole.webp', descricao: 'Sabores Diversos', id: 26, nome: 'Picolé Diversos', preco: 7.50 },
+      { imagem: '/refeições/Rapadura.webp', descricao: '', id: 27, nome: 'Rapadura', preco: 7.50 },
       ],
   };
 
   // O que o .map() faz. Ele percorre todos elementos de um array e recria ele como um novo array com o resultado da função aplicada Ex: setCarrinhocompras(itematual => {})
   //A => serve como uma função simplificada
+  //https://stackoverflow.com/questions/68265664/need-to-add-quantity-on-my-react-state-object
   function adicionarItem(item) {
     setCarrinhocompras(itematual => {
       const itemexiste = itematual.find(itens => itens.id === item.id);
+
       if (itemexiste) {
         return itematual.map(itens => itens.id === item.id ? { ...itens, quantidade: itens.quantidade + 1 } : itens);
-      } else {
+      } 
+      else {
         return [...itematual, { ...item, quantidade: 1 }];
       }
     });
@@ -118,25 +123,15 @@ export default function Menu() {
 
   }
 
-  // Referencia para usar o botao mostrar-carrinho em qualquer lugar do codigo usando portal do react: https://react.dev/reference/react-dom/createPortal
+  // Redenrizo o BotaoCarrinho que esta tanto no barranav quanto na pagina para usar a função toggleCarrinho: https://react.dev/reference/react-dom/createPortal
   useEffect(() => {
-    const Botaonav = document.getElementById('botao-carrinho-barranav');
-    const Botaopagina = document.getElementById('botao-carrinho-pagina');
-
-    if (Botaonav) {
-      const portalnav = ReactDOM.createRoot(Botaonav);
-      portalnav.render(<BotaoCarrinhoNav toggleCarrinho={toggleCarrinho} />);
-    }
-
-    if (Botaopagina) {
-      const portalpagina = ReactDOM.createRoot(Botaopagina);
-      portalpagina.render(<BotaoCarrinhoPagina toggleCarrinho={toggleCarrinho} />);
-    }
+      ReactDOM.createRoot(document.getElementById('botao-carrinho-barranav')).render(<BotaoCarrinhoNav toggleCarrinho={toggleCarrinho} />);
+      ReactDOM.createRoot(document.getElementById('botao-carrinho-pagina')).render(<BotaoCarrinhoPagina toggleCarrinho={toggleCarrinho} />);
   }, []);
 
   return (
     <div>
-      <MenuItens dadosMenu={dadosMenu} onAdicionar={adicionarItem} />
+      <MenuItens dadosMenu={dadosMenu} adicionaritem={adicionarItem} />
 
       <CarrinhoCompras
         carrinho={carrinho}

@@ -10,9 +10,9 @@ export default function Botaologin() {
     const [nomeusuarioatual, setNomeusuarioatual] = useState('');
 
 
-    useEffect(() => {
+   
         // https://firebase.google.com/docs/auth/web/manage-users?hl=pt-br
-        const Estalogado = onAuthStateChanged(auth, async (usuarios) => {
+         onAuthStateChanged(auth, async (usuarios) => {
             if (usuarios) {
                 setUsuariologado(usuarios)
                 const containerautenticacao = document.querySelector('.containerautenticacao')
@@ -30,8 +30,7 @@ export default function Botaologin() {
             }
         });
 
-        return () => Estalogado();
-    }, []);
+  
 
     function logar() {
         const containerautenticacao = document.querySelector('.containerautenticacao')

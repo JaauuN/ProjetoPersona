@@ -98,24 +98,6 @@ body {
   opacity: 1;
   visibility: visible;
 }
-.menu-lateral {
-  display: flex;
-  position: fixed;
-  flex-direction: column;
-  gap: 60px;
-  height: 60%;
-  width: 180px;
-  left: 0px;
-  top: 0px;
-  background-color: var(--cor-primaria);
-  transition: 0.3s ease-in-out;
-  transform: translateX(-100%);
-  z-index: 700;
-  border-right: 2px solid var(--cor-persona);
-  border-bottom: 2px solid var(--cor-persona);
-  border-bottom-right-radius: 20px;
-  overflow: hidden;
-}
 .headerlateral {
   display: flex;
   align-items: center;
@@ -130,10 +112,80 @@ body {
   cursor: pointer;
   border: transparent;
 }
+.menu-lateral {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  height: 60%;
+  gap: 30px;
+  width: 180px;
+  left: 0px;
+  top: 0px;
+  background-color: var(--cor-primaria);
+  transition: 0.3s ease-in-out;
+  transform: translateX(-100%);
+  z-index: 700;
+  border-right: 2px solid var(--cor-persona);
+  border-bottom: 2px solid var(--cor-persona);
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+}
 .menu-lateral.mover {
   transform: translateX(0);
   transition: ease-in-out 0.3s;
 }
+.links-menu-lateral{
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  
+}
+.links-menu-lateral svg{
+  color: white;
+}
+.links-menu-lateral a{
+  position: relative;
+  background-color: transparent;
+  height: 50px;
+  width: 100%;
+  font-family: var(--font-persona);
+  padding: 0px 10px;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--cor-persona);
+  text-decoration: none;
+  transition: all 0.5s ease-in;
+}
+/*https://codepen.io/argyleink/pen/poEjvpd*/
+.links-menu-lateral a::before{
+  transform: scale(0);
+  transform-origin:  right;
+}
+.links-menu-lateral a:hover::before{
+  transform: scale(1);
+  transform-origin: left;
+}
+.links-menu-lateral a::before{
+ content: " ";
+  display: block;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  inset: 0 0 0 0;
+  background: var(--cor-secundaria);
+  z-index: -1;
+  transition: transform .3s ease;
+}
+@media (orientation: landscape) {
+  body {
+    grid-auto-flow: column;
+  }
+}
+
+
+
+
 
 /*Parte login do usuario*/
 /*Parte do botao do barranav quando voce esta deslogado*/
@@ -506,7 +558,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 65%;
+  height: 70%;
   overflow-y: scroll;
   scroll-behavior: smooth;
   gap: 20px;
@@ -527,7 +579,10 @@ body {
   transform: scale(1.03);
 }
 .itenscarrinho img{
-  height: 100%;
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  
 }
 .itenscarrinho h2 {
   font-family: var(--font-persona);
@@ -545,8 +600,8 @@ width: 100%;
 height: 100%;
 border-radius: 20px;
 overflow: hidden;
+gap: 10px;
 }
-
 .contador-itens{
   display: flex;
   max-width: 100px;
@@ -699,14 +754,17 @@ overflow: hidden;
   border-radius: 10px;
   border: transparent;
   background-color: transparent;
-  transition: transform 0.4s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  
+  
 }
 .categorias-itens:hover {
-  top: 100%;
-  left: 100%;
-  transition: all 0.5s;
-  background-color: rgba(24, 24, 24, 0.342);
   border-bottom: 1px solid var(--cor-persona);
+  background-color: var(--cor-secundaria);
+}
+.categorias-itens:active{
+  transition: transform 0.2s ease;
+  transform: scale(0.9);
 }
 
 .containermenu>h2 {
@@ -720,7 +778,6 @@ overflow: hidden;
   text-align: center;
   cursor: default;
 }
-
 .containermenu {
   position: relative;
   align-items: center;
@@ -737,7 +794,6 @@ overflow: hidden;
   display: flex;
   flex-direction: column;
 }
-
 .carouselmenu {
   display: flex;
   margin: auto;
@@ -766,6 +822,7 @@ overflow: hidden;
   column-gap: 2rem;
   transform: translateY(0);
   opacity: 1;
+  cursor: default;
 }
 
 .itens {
@@ -779,30 +836,33 @@ overflow: hidden;
   transition: all 0.5s ease-in-out;
   opacity: 1;
 }
-
 .itens>h3 {
   padding: 10px;
   font-family: var(--font-persona);
   color: var(--cor-persona);
   font-size: 30px;
 }
-
 .itens>p {
-  padding: 10px 20px;
+  display: flex;
+  position: absolute;
+  margin-top: auto;
+  left: 10px;
+  bottom: 10px;
   color: rgb(255, 255, 255);
-  font-size: 20px;
-  margin-bottom: auto;
+  font-size: 25px;
   font-weight: bold;
 }
-
 .itens>button {
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
   cursor: pointer;
   background-color: var(--cor-primaria);
   border: 1px solid var(--cor-persona);
   color: var(--cor-persona);
-  top: -8px;
-  left: -8px;
+  right: 10px;
+  bottom: 10px;
   height: 40px;
   width: 140px;
   margin-left: auto;
@@ -811,31 +871,30 @@ overflow: hidden;
   font-weight: bold;
   transition: all 0.3s ease-in-out;
 }
-
 .itens>button:hover {
   background-color: white;
   transition: all 0.3s ease-in-out;
 }
-
 .itens>img {
   width: 100%;
   max-height: 180px;
-  object-fit: cover;
+  object-fit:cover;
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
 }
-
 .itens>h2 {
   padding: 10px 20px;
   color: white;
+  margin-bottom: 50px;
 }
-
 .itens:hover {
   transition: all 0.2s ease-in-out;
   transform: scale(1.03);
   transform-origin: bottom;
 }
 .popup-itemadicionado {
+  font-family: var(--font-persona);
+  font-size: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -857,7 +916,6 @@ overflow: hidden;
   transform: translate(0);
   z-index: 1200;
 }
-
 .popup-escondido {
   opacity: 0;
   transform: translateY(-10px);

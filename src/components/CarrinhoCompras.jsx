@@ -23,7 +23,7 @@ export default function CarrinhoCompras({ carrinho, mostrar, Fecharmenu, remover
                                         <div className='styleitemcarrinho'>
                                             <img src={item.imagem} />
                                             <h2>{item.nome} </h2>
-                                            <p>R$ {(item.preco * item.quantidade)}</p>
+                                            <p>R$ {(item.preco * item.quantidade).toFixed(2)}</p>
                                             <div className='contador-itens'>
                                                 <button className='mais' onClick={() => adicionaritem(item)}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                                     <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />

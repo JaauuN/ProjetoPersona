@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-export default function MenuItens({ dadosMenu, onAdicionar }) {
-  const categorias = ['Pratos Feitos', 'Carnes', 'Frituras', 'Bebidas', 'Sobremesas'];
-  const [categoriaAtual, setCategoriaatual] = useState('Pratos Feitos');
+export default function MenuItens({ dadosMenu, adicionaritem }) {
+  const categorias = ['Pratos Regionais', 'Carnes', 'Frituras', 'Bebidas', 'Sobremesas'];
+  const [categoriaAtual, setCategoriaatual] = useState('Pratos Regionais');
   const itens = dadosMenu[categoriaAtual] || [];
 
   const [popupadicionado, setPopupadicionado] = useState(false);
@@ -54,7 +54,7 @@ export default function MenuItens({ dadosMenu, onAdicionar }) {
                   <h3>{item.nome}</h3>
                   <h2>{item.descricao}</h2>
                   <p>R$ {item.preco.toFixed(2)}</p>
-                  <button onClick={() => { onAdicionar(item); mensagemadicionar() }}>Adicionar</button>
+                  <button onClick={() => { adicionaritem(item); mensagemadicionar() }}>Adicionar</button>
                 </div>
               ))
             )}
